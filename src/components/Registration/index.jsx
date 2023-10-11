@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import { BsPersonCircle } from 'react-icons/bs';
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -43,8 +44,10 @@ export const Register = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <BsPersonCircle size={70} />
+      <h1>Registration</h1>
+      <form onSubmit={handleSubmit} className="formstyle">
         <label>
           Email Address{' '}
           <input
@@ -81,7 +84,9 @@ export const Register = () => {
             onChange={handleUser}
           />
         </label>
-        <input type="submit" value="Register" />
+        <div className="submitbutton">
+          <input type="submit" value="Register" />
+        </div>
       </form>
     </div>
   );

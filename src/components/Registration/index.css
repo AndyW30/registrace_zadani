@@ -1,9 +1,22 @@
-form {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+
+
+.formstyle {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+  border-radius: 1em;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 div {
@@ -36,4 +49,10 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #353536;
+}
+
+.submitbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
