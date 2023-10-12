@@ -12,29 +12,20 @@ export const Register = () => {
 
   const handleUser = (e) => {
     const { name, value } = e.target;
-    if (name === 'email') {
-      //kontrola zda je email validní
-      if (value.includes('@')) {
-        // vypíšeme jméno před zavináčem
-        const userNameFromEmail = value.split('@')[0];
-        setUser({
-          ...user,
-          [name]: value,
-          username: userNameFromEmail,
-        });
-      } else {
-        // ponecháme prázdné
-        setUser({
-          ...user,
-          [name]: value,
-        });
-      }
-    } else {
-      // aktualizujeme stav
-      setUser({
-        ...user,
-        [name]: value,
-      });
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  const handleEmailBlur = (e) => {
+    const { value } = e.target;
+    if (value.includes('@')) {
+      const userNameFromEmail = value.split('@')[0];
+      setUser((prevUser) => ({
+        ...prevUser,
+        username: prevUser.username || userNameFromEmail,
+      }));
     }
   };
 
@@ -55,6 +46,7 @@ export const Register = () => {
             name="email"
             value={user.email}
             onChange={handleUser}
+            onBlur={handleEmailBlur}
           />
         </label>
         <label>
